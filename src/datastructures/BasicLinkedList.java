@@ -25,6 +25,18 @@ public class BasicLinkedList<X> {
         nodeCount++;
     }
 
+    public X remove(){
+        if (first == null) {
+            throw new IllegalStateException("The LinkedList is empty and there are no items to remove");
+        }
+        X nodeItem = first.getNodeItem();
+
+        //now update the first pointer and throw away the old first
+        first = first.getNextNode();
+        nodeCount--;
+        return nodeItem;
+    }
+
     public int size() {
         return nodeCount;
     }
